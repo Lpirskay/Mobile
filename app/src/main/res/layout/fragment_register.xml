@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
         android:fontFamily="@font/alegreya_medium"
-        android:text="Sign in"
+        android:text="Register"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
     <Button
-        android:id="@+id/SignInBtn"
+        android:id="@+id/RegisterBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -68,54 +68,12 @@
         android:fontFamily="@font/alegreya_sans"
         android:includeFontPadding="false"
         android:paddingVertical="16dp"
-        android:text="Sign in"
-        android:textAllCaps="false"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
-
-    <TextView
-        android:id="@+id/RegisterText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="23dp"
-        android:fontFamily="@font/alegreya_sans"
-        android:text="Register"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SignInBtn" />
-
-    <Button
-        android:id="@+id/ProfileBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="27dp"
-        android:background="@drawable/green_btn"
-        android:fontFamily="@font/alegreya_sans"
-        android:includeFontPadding="false"
-        android:paddingVertical="16dp"
-        android:text="Профиль"
+        android:text="Зарегистрироваться"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterText" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@
     android:background="@drawable/background"
     android:paddingLeft="27dp"
     android:paddingRight="27dp"
-    tools:context=".presentation.view.start.OnboardFragment">
+    tools:context=".view.login.OnboardFragment">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/RegisterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

@@ -1,4 +1,4 @@
-package com.rodion.meditationapp.presentation.view.start;
+package com.rodion.meditationapp.view.login;
 
 import android.os.Bundle;
 
@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.rodion.meditationapp.R;
 import com.rodion.meditationapp.databinding.FragmentOnboardBinding;
 
 public class OnboardFragment extends Fragment {
@@ -21,6 +20,7 @@ public class OnboardFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentOnboardBinding.inflate(inflater, container, false);
         binding.onboardLogin.setOnClickListener(LoginFragment::open);
+        binding.RegisterText.setOnClickListener(RegisterFrament::open);
         return binding.getRoot();
     }
 

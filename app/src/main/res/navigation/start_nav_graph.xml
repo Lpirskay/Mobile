@@ -7,16 +7,40 @@
 
     <fragment
         android:id="@+id/onboardFragment"
-        android:name="com.rodion.meditationapp.presentation.view.start.OnboardFragment"
+        android:name="com.rodion.meditationapp.view.login.OnboardFragment"
         android:label="OnboardFragment"
         tools:layout="@layout/fragment_onboard">
         <action
             android:id="@+id/action_onboardFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.rodion.meditationapp.presentation.view.start.LoginFragment"
+        android:name="com.rodion.meditationapp.view.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFrament"
+            app:destination="@id/registerFrament"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFrament"
+        android:name="com.rodion.meditationapp.view.login.RegisterFrament"
+        android:label="RegisterFrament"
+        tools:layout="@layout/fragment_register"/>
+    <action
+        android:id="@+id/toRegisterFragment"
+        app:destination="@id/registerFrament"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 </navigation>

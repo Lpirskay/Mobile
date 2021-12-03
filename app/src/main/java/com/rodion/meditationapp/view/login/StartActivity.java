@@ -1,31 +1,40 @@
-package com.rodion.meditationapp.presentation.view.start;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
+package com.rodion.meditationapp.view.login;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.rodion.meditationapp.R;
 import com.rodion.meditationapp.databinding.StartActivityBinding;
+import com.rodion.meditationapp.view.dashboard.DashboardActivity;
+import com.rodion.meditationapp.view.login.viewmodel.LoginViewModel;
 
 public class StartActivity extends AppCompatActivity {
     private NavController navController;
     private StartActivityBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_MeditationApp);
+
+        LoginViewModel viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        viewModel.getUser();
+        viewModel.userInfo.observe(this, (user) -> {
+            if(user != null) {
+                DashboardActivity.open(this);
+            }
+        });
+
         binding = StartActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        NavHostFragment navHostFragment =
-                (NavHostFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.fragmentContainerView);
-        if(navHostFragment != null) {
-            navController = navHostFragment.getNavController();
-        }
+        navController = Navigation.findNavController(this, R.id.fragmentContainerView);
     }
 
     @Override
