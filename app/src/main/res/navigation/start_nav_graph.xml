@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/onboardFragment"
         android:name="com.rodion.meditationapp.view.login.OnboardFragment"
-        android:label="OnboardFragment"
+        android:label="OnboardFragment4"
         tools:layout="@layout/fragment_onboard">
         <action
             android:id="@+id/action_onboardFragment_to_loginFragment"
