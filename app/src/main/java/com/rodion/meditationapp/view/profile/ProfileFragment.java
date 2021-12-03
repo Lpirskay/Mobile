@@ -26,9 +26,6 @@ public class ProfileFragment extends Fragment {
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        requireActivity();
 
         final TextView textView = binding.textNotifications;
         profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -37,7 +34,7 @@ public class ProfileFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        return root;
+        return binding.getRoot();
     }
 
     @Override
