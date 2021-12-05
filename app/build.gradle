@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.rodion.filmprojecttest"
+        applicationId "com.rodion.filmproject"
         minSdk 28
         targetSdk 31
         versionCode 1
