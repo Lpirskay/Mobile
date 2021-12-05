@@ -6,14 +6,17 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.rodion.meditationapp.data.storage.dao.PhotoDao;
 import com.rodion.meditationapp.data.storage.dao.UserDao;
+import com.rodion.meditationapp.data.storage.entity.Photo;
 import com.rodion.meditationapp.data.storage.entity.User;
 
 import kotlin.jvm.Volatile;
 
-@Database(entities = {User.class}, version = 5)
+@Database(entities = {User.class, Photo.class}, version = 6)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
+    public abstract PhotoDao photoDao();
 
     @Volatile
     static AppDatabase instance;

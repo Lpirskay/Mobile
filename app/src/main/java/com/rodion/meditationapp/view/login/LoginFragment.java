@@ -1,5 +1,7 @@
 package com.rodion.meditationapp.view.login;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +40,14 @@ public class LoginFragment extends Fragment {
         //Show any errors
         viewModel.errorInfo.observe(getViewLifecycleOwner(), (res)-> {
             showLoading(false);
-            Toast.makeText(getContext(), res, Toast.LENGTH_LONG).show();
+            new AlertDialog.Builder(getContext())
+                                    .setTitle("Network error")
+                                    .setMessage(res)
+                                    .setPositiveButton("OK", (dialogInterface, i) -> {
+                                        dialogInterface.dismiss();
+                                    })
+                                    .show();
+            //Toast.makeText(getContext(), res, Toast.LENGTH_LONG).show();
         });
 
         binding = FragmentLoginBinding.inflate(inflater, container, false);

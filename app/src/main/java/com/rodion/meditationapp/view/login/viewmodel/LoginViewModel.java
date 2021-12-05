@@ -16,6 +16,8 @@ import com.rodion.meditationapp.data.storage.entity.User;
 import com.rodion.meditationapp.data.network.service.MeditationService;
 import com.rodion.meditationapp.data.storage.dao.UserDao;
 import com.rodion.meditationapp.data.storage.db.AppDatabase;
+
+import java.net.UnknownHostException;
 import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -29,7 +31,6 @@ public class LoginViewModel extends AndroidViewModel {
     UserDao userDao;
     public MutableLiveData<User> userInfo = new MutableLiveData<>();
     public MutableLiveData<String> errorInfo = new MutableLiveData<>();
-    public MutableLiveData<Boolean> registered = new MutableLiveData<>();
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
@@ -41,11 +42,14 @@ public class LoginViewModel extends AndroidViewModel {
         Credential c = new Credential(email, pass);
         Disposable d = service.loginUser(c)
                 .doOnError((t) -> {
+                    if(t instanceof UnknownHostException) {
+                        errorInfo.postValue("No internet connection");
+                    }
                     ResponseBody response = ((HttpException) t).response().errorBody();
                     Error err = new Gson().fromJson(response.charStream(), Error.class);
                     errorInfo.postValue(err.getError());
                 })
-                .doOnSuccess((user) -> {
+                .doAfterSuccess((user) -> {
                     userInfo.postValue(user);
                 })
                 .flatMap((u) -> {
